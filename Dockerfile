@@ -1,23 +1,23 @@
 FROM php:8.2-apache
 
-RUN apt-get update \
-    && apt-get install -y \
-    zip libzip-dev
+# RUN apt-get update \
+#    && apt-get install -y \
+#    zip libzip-dev
 
 RUN docker-php-ext-install pdo pdo_mysql
 
-RUN curl -sS http://getcomposer.org/install │ php -- --install-dir=/usr/local/bin --filename=composer
+# RUN curl -sS http://getcomposer.org/install │ php -- --install-dir=/usr/local/bin --filename=composer
 
-RUN composer global require --dev phpunit/phpunit ^11
+# RUN composer global require --dev phpunit/phpunit ^11
 
-ENV PATH=/root/.composer/vendor/bin:$PATH
+# ENV PATH=/root/.composer/vendor/bin:$PATH
 
 # COPY ./tests /var/www/html/tests
 
 COPY ./src /var/www/html/src
 
-COPY config.sh /usr/local/bin/config.sh
+# COPY config.sh /usr/local/bin/config.sh
 
-RUN chmod +x /usr/local/bin/config.sh
+# RUN chmod +x /usr/local/bin/config.sh
 
-ENTRYPOINT ["config.sh"]
+# ENTRYPOINT ["config.sh"]

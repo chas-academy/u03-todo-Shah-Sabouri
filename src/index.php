@@ -14,7 +14,45 @@ include './functions/crud-functions.php'
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="shahryar">
-    <!-- <link rel="stylesheet" href="/style/style.css"> -->
-    <title>To do</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <title>Funky ass todo app</title>
 </head>
+
+<body>
+    <h1>Todo</h1>
+    <h2>Lists:</h2>
+    <?php
+    $list = getLists($conn);
+
+    foreach ($list as $l): ?>
+        <div class="list-container">
+            <p class="list-info"><?php echo htmlspecialchars($list['id']); ?>.</p>
+            <p class="list-info"><?php echo htmlspecialchars($list['title']); ?>.</p>
+        </div>
+
+    <?php endforeach; ?>
+    <div class="task-list">
+        <h2>Tasks:</h2>
+        <?php
+        $tasks = getTasks($conn);
+
+        foreach ($tasks as $t): ?>
+            <div class="task">
+                <h3 class="task-title"><?php echo htmlspecialchars($tasks['title']); ?></h3>
+                <div class="container">
+                    <div class="task-info">
+                        <p><?php echo htmlspecialchars($tasks['id']); ?></p>
+                        <input type="checkbox" <?php if ($tasks['isDone'] echo 'checked'; ?>>
+                    </div>
+                    <div class="cta-container">
+                        <button>edit</button>
+                        <button>delete</button>
+                        <a href="./views/edit.php">edit</a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</body>
+
 </html>

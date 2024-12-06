@@ -16,5 +16,3 @@ CREATE TABLE task (
     list_id int DEFAULT NULL,
     CONSTRAINT fk_list_id FOREIGN KEY (list_id) REFERENCES list(id)
 );
-
-INSERT INTO lists()

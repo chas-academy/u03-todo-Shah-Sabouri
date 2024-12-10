@@ -15,11 +15,11 @@ function getLists($conn)
 }
 
 function deleteTask($conn, $task_id) {
-    $query = "DELETE FROM tasks WHERE list_id = :task_id";
+    $query = "DELETE FROM tasks WHERE task_id = :task_id";
 
     $stmt = $conn->prepare($query);
 
-    $stmt = bindParam(':task_id', $task_id, PDO::PARAM_INT);
+    $stmt->bindParam(':task_id', $task_id, PDO::PARAM_INT);
 
-    return $stms->execute();
+    return $stmt->execute();
 }

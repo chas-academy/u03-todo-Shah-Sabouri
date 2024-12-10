@@ -33,3 +33,9 @@ body {
     align-items: center;
     min-height: 30%;
 }
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

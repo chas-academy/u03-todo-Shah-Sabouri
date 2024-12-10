@@ -45,9 +45,8 @@ include './functions/crud-functions.php'
                         <input type="checkbox" <?php if ($t['isDone']) echo 'checked'; ?>>
                     </div>
                     <div class="cta-container">
-                        <button>edit</button>
+                        <button><a href="./views/edit.php">edit</a></button>
                         <button>delete</button>
-                        <a href="./views/edit.php">edit</a>
                     </div>
                 </div>
             </div>

@@ -26,8 +26,8 @@ include './functions/crud-functions.php'
 
     foreach ($list as $l): ?>
         <div class="list-container">
-            <p class="list-info"><?php echo htmlspecialchars($list['id']); ?>.</p>
-            <p class="list-info"><?php echo htmlspecialchars($list['title']); ?>.</p>
+            <p class="list-info"><?php echo htmlspecialchars($l['id']); ?>.</p>
+            <p class="list-info"><?php echo htmlspecialchars($l['title']); ?>.</p>
         </div>
 
     <?php endforeach; ?>
@@ -38,11 +38,11 @@ include './functions/crud-functions.php'
 
         foreach ($tasks as $t): ?>
             <div class="task">
-                <h3 class="task-title"><?php echo htmlspecialchars($tasks['title']); ?></h3>
+                <h3 class="task-title"><?php echo htmlspecialchars($t['title']); ?></h3>
                 <div class="container">
                     <div class="task-info">
-                        <p><?php echo htmlspecialchars($tasks['id']); ?></p>
-                        <input type="checkbox" <?php if ($tasks['isDone'] echo 'checked'; ?>>
+                        <p><?php echo htmlspecialchars($t['id']); ?></p>
+                        <input type="checkbox" <?php if ($t['isDone']) echo 'checked'; ?>>
                     </div>
                     <div class="cta-container">
                         <button>edit</button>

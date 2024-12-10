@@ -10,6 +10,6 @@ function getTasks($conn)
 
 function getLists($conn)
 {
-    $stmt = $conn->query('SELECT id, title, FROM list');
+    $stmt = $conn->query('SELECT id, title FROM list');
     return $stmt->fetchAll();
 }

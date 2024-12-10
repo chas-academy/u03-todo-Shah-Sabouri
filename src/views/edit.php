@@ -2,6 +2,7 @@
 
 require_once '../db.php';
 require '../functions/crud-functions.php';
+include '../header.php';
 
 ?>
 
@@ -19,6 +20,5 @@ require '../functions/crud-functions.php';
         
     </div>
 <body>
-    <
 </body>
 </html>

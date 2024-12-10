@@ -15,7 +15,7 @@ services:
       MARIADB_ROOT_PASSWORD: mariadb
       MARIADB_DATABASE: todo
     volumes:
-      - ./src/seed:/docker-entrypoint-initdb.d:ro
+      - ./src/seed:/docker-entrypoint-initdb.d
   adminer:
     image: adminer
     restart: unless-stopped

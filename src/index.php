@@ -46,7 +46,7 @@ include './functions/crud-functions.php'
                     </div>
                     <div class="cta-container">
                         <button><a href="./views/edit.php">edit</a></button>
-                        <button>delete</button>
+                        <button><a href="./views/delete.php">delete</a></button>
                     </div>
                 </div>
             </div>

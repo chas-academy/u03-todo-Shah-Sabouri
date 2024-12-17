@@ -13,6 +13,15 @@ include 'db.php';
     <link rel="stylesheet" href= "style.css">
 </head>
 <body>
-    
+    <div class="main-section">
+        <div class="add-section">
+            <form action="">
+                <input type="text"
+                        name="title"
+                        placeholder="Required field"/>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -22,6 +22,14 @@ include 'db.php';
                 <button type="submit">Add</button>
             </form>
         </div>
+        <div class="show-todo-section">
+            <div class="todo-item">
+                <input type="checkbox">
+                <h2>Random</h2>
+                <br>
+                <small>created: Dec 17, 2024</small>
+            </div>
+        </div>
     </div>
 </body>
 </html>

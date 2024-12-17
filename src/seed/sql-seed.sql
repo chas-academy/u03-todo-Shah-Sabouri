@@ -2,3 +2,10 @@ CREATE DATABASE IF NOT EXISTS todo;
 
 USE todo;
 
+CREATE TABLE stuffToDo (
+    id INT(11) AUTO_INCREMENT,
+    title VARCHAR(225),
+    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    checked TINYINT(1) DEFAULT 0,
+    PRIMARY KEY (id)
+);

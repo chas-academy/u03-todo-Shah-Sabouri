@@ -1,12 +1,26 @@
 <?php
+
+include "db.php";
+
 if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
-    $query = "UPDATE todo SET checked = NOT checked WHERE id = :id";
+    $query = "UPDATE stuffToDo SET checked = NOT checked WHERE id = :id";
     $stmt = $pdo->prepare($query);
     $stmt->execute(['id' => $id]);
 
-    $status = ($stmt->rowCount() > 0) ? '0' : '1';
-    echo $status;
+    $currentCheckedState = $stmt->fetchColumn();
+
+    if ($currentCheckedState !== false) {
+        $newState = ($currentCheckedState == 1) ? 0 : 1;
+
+        $query = "UPDATE stuffToDo SET checked = :newState WHERE id = :id";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['newState' => $newState, 'id' => $id]);
+
+        echo $newState;
+    } else {
+        echo 'error';
+    }
 }
 ?>

@@ -1,24 +1,22 @@
 <?php
 
-if(isset($_POST['title'])){
-    require '../db.php';
+include 'db.php';
 
-    $title = $_POST['title'];
+if (isset($_POST['title']) && !empty($_POST['title'])) {
+    $title = htmlspecialchars($_POST['title']);
 
-    if(empty($title)){
-        header("Location: ../index.php?mess=error");
-    } else {
-        $stmt = $conn->prepare("INSERT INTO todos(title) VALUE(?)");
-        $res = $stmt->execute([$title]);
+    $query = "INSERT INTO stuffToDo (title, checked, date_time) VALUES (:title, 0, NOW())";
 
-        if($res){
-            header("Location: ../index.php?mess=success"); 
-        } else {
-            header("Location: ../index.php");
-        }
-        $conn = null;
-        exit();
+    try {
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':title', $title);
+        $stmt->execute();
+
+        header("Location: index.php"); // Omdirigerar till huvudsidan efter läggt till
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 } else {
-    header("Location: ../index.php?mess=error");
+    header("Location: index.php?mess=error");
 }
+?>

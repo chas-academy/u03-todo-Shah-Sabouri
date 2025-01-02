@@ -18,7 +18,7 @@ $todos = $conn->query($query);
 <body>
     <div class="main-section">
         <div class="add-section">
-            <form action="">
+            <form action="functions/create.php" method="POST">
                 <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error'){ ?>
                     <input type="text"
                             name="title"

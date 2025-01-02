@@ -1,26 +1,26 @@
 <?php
 
-include "db.php";
+include 'db.php';
 
-if (isset($_POST['id'])) {
-    $id = $_POST['id'];
+if (isset($_POST['id']) && isset($_POST['checked'])) {
+    $id = (int)$_POST['id'];
+    $checked = $_POST['checked'] == '1' ? 1 : 0;
 
-    $query = "UPDATE stuffToDo SET checked = NOT checked WHERE id = :id";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute(['id' => $id]);
+    $query = "UPDATE stuffToDo SET checked = :checked WHERE id = :id";
 
-    $currentCheckedState = $stmt->fetchColumn();
+    try {
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':checked', $checked);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
 
-    if ($currentCheckedState !== false) {
-        $newState = ($currentCheckedState == 1) ? 0 : 1;
-
-        $query = "UPDATE stuffToDo SET checked = :newState WHERE id = :id";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute(['newState' => $newState, 'id' => $id]);
-
-        echo $newState;
-    } else {
-        echo 'error';
+        header("Location: index.php"); // Omdirigerar till huvudsidan efter uppdatering
+        exit();
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
+} else {
+    header("Location: index.php");
+    exit();
 }
 ?>

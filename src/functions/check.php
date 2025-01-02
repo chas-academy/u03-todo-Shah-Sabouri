@@ -1,6 +1,5 @@
 <?php
-
-include 'db.php';
+include '../db.php';
 
 if (isset($_POST['id']) && isset($_POST['checked'])) {
     $id = (int)$_POST['id'];
@@ -14,13 +13,15 @@ if (isset($_POST['id']) && isset($_POST['checked'])) {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
-        header("Location: index.php"); // Omdirigerar till huvudsidan efter uppdatering
+        header("Location: ../index.php"); // Omdirigerar till huvudsidan efter uppdatering
         exit();
     } catch (PDOException $e) {
+        error_log("Uppdatering misslyckades: " . $e->getMessage());
         echo "Error: " . $e->getMessage();
+        exit()
     }
 } else {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 ?>

@@ -1,6 +1,5 @@
 <?php
-
-include 'db.php';
+include '../db.php';
 
 if (isset($_POST['title']) && !empty($_POST['title'])) {
     $title = htmlspecialchars($_POST['title']);
@@ -12,13 +11,13 @@ if (isset($_POST['title']) && !empty($_POST['title'])) {
         $stmt->bindParam(':title', $title);
         $stmt->execute();
 
-        header("Location: index.php"); // Omdirigerar till huvudsidan efter läggt till
+        header("Location: ../index.php"); // Omdirigerar till huvudsidan efter läggt till
         exit();
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 } else {
-    header("Location: index.php?mess=error");
+    header("Location: ../index.php?mess=error");
     exit();
 }
 ?>

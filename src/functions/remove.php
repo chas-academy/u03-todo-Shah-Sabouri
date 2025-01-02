@@ -1,21 +1,34 @@
 <?php
-
-include 'db.php';
+include '../db.php';
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = (int)$_GET['id'];
+
+    error_log("Task ID to delete: " . $id);
 
     $query = "DELETE FROM stuffToDo WHERE id = :id";
 
     try {
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':id', $id);
-        $stmt->execute();
 
-        header("Location: index.php");
-        exit();
+        if ($stmt->execute()) {
+            error_log("Task with ID $id was deleted.");
+            header("Location: ../index.php");
+            exit(); 
+        } else {
+            error_log("Failed to delete task with ID $id.");
+            echo "An error occurred. Please try again later.";
+            exit();
+        }
+
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        error_log("Error deleting task with ID $id: " . $e->getMessage());
+        echo "An error occurred. Please try again later.";
+        exit(); 
     }
+} else {
+    header("Location: ../index.php");
+    exit();
 }
 ?>

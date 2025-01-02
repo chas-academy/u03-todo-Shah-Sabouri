@@ -8,11 +8,11 @@ try {
     $conn = new PDO(
         "mysql:host=$servername;dbname=$dbname",
         "$username",
-        "$password",
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-    );
-    echo "Anslutning lyckades!";
+        "$password",);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo "Anslutningsfel: " . $e->getMessage();
+    error_log("Anslutningsfel: " . $e->getMessage());
+    echo "Anslutning till databass misslyckades, försök igen senare.";
+    exit();
 }
 ?>

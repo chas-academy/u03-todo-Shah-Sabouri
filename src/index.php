@@ -1,6 +1,10 @@
 <?php
-
 include 'db.php';
+
+if (!$conn) {
+    echo "Database connection failed!";
+    exit();  // Stop further script execution if no connection
+}
 
 $query = "SELECT * FROM stuffToDo";
 $todos = $conn->query($query);

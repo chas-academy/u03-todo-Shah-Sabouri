@@ -2,6 +2,9 @@
 
 include 'db.php';
 
+$query = "SELECT * FROM stuffToDo";
+$todos = $conn->query($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +37,9 @@ include 'db.php';
             <?php if ($todos->rowCount() <= 0) { ?>
                 <div class="todo-item">
                     <div class="empty">
-                        <img src="" alt="Pic 1" width="100%" />
-                        <img src="" alt="Pic 1" width="80px">
+                        <p>No tasks to show</p>
+                        <!-- <img src="" alt="Pic 1" width="100%" />
+                        <img src="" alt="Pic 2" width="80px"> -->
                     </div>
                 </div>
             <?php } ?>

@@ -50,8 +50,7 @@ $todos = $conn->query($query);
 
             <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="todo-item">
-                    <!-- Highlighted: Replace the <span> with an <a> tag for deletion -->
-                    <a href="functions/edit.php?id=<?php echo $todo['id']; ?>" class="edit-todo">Edit</a>
+                    <a href="functions/edit.php?id=<?php echo $todo['id']; ?>" class="edit-btn">Edit</a>
 
                     <a href="functions/remove.php?id=<?php echo $todo['id']; ?>" class="remove-todo" onclick="return confirm('Are you sure you want to delete this task?')">x</a>                    
                     <?php if ($todo['checked']) { ?>

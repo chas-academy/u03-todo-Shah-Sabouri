@@ -21,6 +21,7 @@ $todos = $conn->query($query);
 </head>
 <body>
     <div class="main-section">
+    <h1>To-Do List</h1>
         <div class="add-section">
             <form action="functions/create.php" method="POST">
                 <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error'){ ?>

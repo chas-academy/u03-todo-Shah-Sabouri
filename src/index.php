@@ -44,32 +44,33 @@ $todos = $conn->query($query);
                         <p>No tasks to show</p>
                         <!-- <img src="" alt="Pic 1" width="100%" />
                         <img src="" alt="Pic 2" width="80px"> -->
-                    </div>
+                        </div>
                 </div>
             <?php } ?>
 
             <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="todo-item">
-                    <span id="<?php echo $todo['id']; ?>"
-                        class="remove-todo">x</span>
+                    <!-- Highlighted: Replace the <span> with an <a> tag for deletion -->
+                    <a href="functions/remove.php?id=<?php echo $todo['id']; ?>" class="remove-todo" onclick="return confirm('Are you sure you want to delete this task?')">x</a>                    
                     <?php if ($todo['checked']) { ?>
                         <input type="checkbox"
-                                class="check-box"
-                                data-todo-id="<?php echo $todo['id']; ?>"
-                                checked />
+                            class="check-box"
+                            data-todo-id="<?php echo $todo['id']; ?>"
+                            checked />
                         <h2 class="checked">
-                    <?php echo $todo['title'] ?></h2>
-                <?php } else { ?>
-                    <input type="checkbox"
+                            <?php echo $todo['title'] ?>
+                        </h2>
+                    <?php } else { ?>
+                        <input type="checkbox"
                             data-todo-id ="<?php echo $todo['id']; ?>"
                             class="check-box" />
-                    <h2><?php echo $todo['title'] ?></h2>
-                <?php } ?>
-                <br>
-                <small>created: <?php echo $todo['date_time'] ?></small>
-            </div>
-        <?php } ?>
+                        <h2><?php echo $todo['title'] ?></h2>
+                    <?php } ?>
+                    <br>
+                    <small>created: <?php echo $todo['date_time'] ?></small>
+                </div>
+            <?php } ?>
+        </div>
     </div>
-</div>
 </body>
 </html>

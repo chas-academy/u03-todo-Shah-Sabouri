@@ -5,6 +5,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = (int)$_GET['id'];
 
     $query = "SELECT * FROM stuffToDo WHERE id = :id LIMIT 1";
+    // Förbereder SQL-frågan att hämta uppgift med angivet 'id'
+
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
@@ -16,16 +18,17 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         exit();
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Kontrollerar om formuläret skickades (POST-förfrågan)
         if (isset($_POST['title']) && !empty($_POST['title'])) {
             $newTitle = $_POST['title'];
 
             $updateQuery = "UPDATE stuffToDo SET title = :title WHERE id = :id";
+            // Förbereder SQL-frågan för att uppdatera uppgiftens titel i databasen
             $updateStmt = $conn->prepare($updateQuery);
             $updateStmt->bindParam(':title', $newTitle);
             $updateStmt->bindParam(':id', $id);
 
-            if ($updateStmt->execute()) {
+            if ($updateStmt->execute()) { // Kör uppdateringsfrågan
                 header("Location: ../index.php");
                 exit();
             } else {

@@ -7,6 +7,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     error_log("Task ID to delete: " . $id);
 
     $query = "DELETE FROM stuffToDo WHERE id = :id";
+    // Förbereder SQL-frågan för att ta bort uppgift med angivet 'id'
 
     try {
         $stmt = $conn->prepare($query);
@@ -23,8 +24,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         }
 
     } catch (PDOException $e) {
+        // Fångar eventuella undantag vid frågeexekvering, loggar felet
         error_log("Error deleting task with ID $id: " . $e->getMessage());
-        echo "An error occurred. Please try again later.";
+        echo "An error occurred. Please try again later."; // Visar ett felmeddelande, stoppar exekveringen
         exit(); 
     }
 } else {

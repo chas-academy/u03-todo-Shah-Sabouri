@@ -73,3 +73,14 @@ h1 {
     height: 18px;
 }
 
+#errorMes {
+    display: block;
+    background: #f2dede;
+    width: 95%;
+    margin: 0px auto;
+    color: rgb(139, 19, 19);
+    padding: 10px;
+    height: 35px;
+}
+
+

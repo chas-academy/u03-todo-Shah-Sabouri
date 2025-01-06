@@ -51,9 +51,11 @@ $todos = $conn->query($query);
 
             <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="todo-item">
+                    <div class="options-container">
                     <a href="functions/edit.php?id=<?php echo $todo['id']; ?>" class="edit-btn">Edit</a>
 
-                    <a href="functions/remove.php?id=<?php echo $todo['id']; ?>" class="remove-todo" onclick="return confirm('Are you sure you want to delete this task?')">x</a>                    
+                    <a href="functions/remove.php?id=<?php echo $todo['id']; ?>" class="remove-todo" onclick="return confirm('Are you sure you want to delete this task?')">x</a>
+                </div>                 
                     <?php if ($todo['checked']) { ?>
                         <input type="checkbox"
                             class="check-box"

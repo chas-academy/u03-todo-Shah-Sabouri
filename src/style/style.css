@@ -1,3 +1,4 @@
+/*INDEX.PHP */
 body {
     background: #34495e;
 }
@@ -111,9 +112,53 @@ h1 {
     font-family: sans-serif;
 }
 
+.options-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.remove-todo {
+
+    width: 20px;
+    height: 20px;
+    font-family: sans-serif;
+    color: rgb(139, 97, 93);
+    text-decoration: none;
+    text-align: right;
+    padding: 0px 5px 8px 0px;
+    border-radius: 50%;
+    transition: background 1s;
+    cursor: pointer;
+}
+
+.remove-to-do:hover {
+    background: rgb(139, 97, 93);
+    color: #fff;
+}
+
+.edit-btn {
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-family: sans-serif;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: #fff;
+}
+
+/* EDIT.PHP */
 .edit-section {
     width: 100%;
     background: #fff;
+    box-shadow: 0 4px 8px 0 #333;
     margin: 0px auto;
     padding: 10px;
     border-radius: 5px;
@@ -171,7 +216,7 @@ h1 {
 
 .edit-section button:hover {
     box-shadow: 0 2px 2px 0 #ccc, 0 2px 3px 0 #ccc;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .edit-section button span {

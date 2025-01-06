@@ -84,10 +84,12 @@ h1 {
 }
 
 .todo-item {
+    background-color: #ccc;
+    font-family: sans-serif;
     width: 95%;
     margin: 10px auto;
     padding: 20px 10px;
-    box-shadow: 0 4px 8px 0 #ccc, 0 6px 20px 0 #ccc;
+    box-shadow: 0 4px 8px 0 #333;
     border-radius: 5px;
 }
 
@@ -96,7 +98,7 @@ h1 {
     padding: 5px 0px;
     font-size: 17px;
     font-family: sans-serif;
-    color: #555;
+    color: #000;
 }
 
 .todo-item small {
@@ -109,3 +111,73 @@ h1 {
     font-family: sans-serif;
 }
 
+.edit-section {
+    width: 100%;
+    background: #fff;
+    margin: 0px auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.edit-section h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    color: #34495e;
+    margin: 30px;
+}
+
+.edit-section input {
+    display: block;
+    width: 95%;
+    height: 40px;
+    margin: 40px;
+    margin: 10px auto;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+
+.edit-section .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.edit-section button {
+    width: 30%;
+    padding: 10px 20px;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-family: sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-btn {
+    background: 0088FF;
+    color: #000;
+}
+
+.cancel-btn {
+    background: rgb(139, 19, 19);
+    color: #fff;
+}
+
+.edit-section button:hover {
+    box-shadow: 0 2px 2px 0 #ccc, 0 2px 3px 0 #ccc;
+    opacity: 0.8;
+}
+
+.edit-section button span {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}

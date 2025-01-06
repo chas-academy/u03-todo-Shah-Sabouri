@@ -112,6 +112,11 @@ h1 {
     font-family: sans-serif;
 }
 
+.check-box:checked + h2 {
+    text-decoration: line-through;
+    color: #888;
+}
+
 .options-container {
     display: flex;
     justify-content: flex-end;

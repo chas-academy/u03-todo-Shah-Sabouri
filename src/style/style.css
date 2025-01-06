@@ -17,3 +17,11 @@ body {
     border-radius: 10px;
 }
 
+.add-section {
+    width: 100%;
+    background: #fff;
+    margin: 0px auto;
+    padding: 10px;
+    border-radius: 5px;
+}
+

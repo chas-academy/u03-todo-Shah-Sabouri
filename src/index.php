@@ -3,7 +3,7 @@ include 'db.php';
 
 if (!$conn) {
     echo "Database connection failed!";
-    exit();  // Stop further script execution if no connection
+    exit();
 }
 
 $query = "SELECT * FROM stuffToDo";

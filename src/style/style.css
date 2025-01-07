@@ -94,12 +94,29 @@ h1 {
     border-radius: 5px;
 }
 
+.todo-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-checkbox-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
 .todo-item h2 {
     display: inline-block;
     padding: 5px 0px;
     font-size: 17px;
     font-family: sans-serif;
     color: #000;
+}
+
+.todo-item h2.checked {
+    text-decoration: line-through;
+    color: #888;
 }
 
 .todo-item small {
@@ -112,11 +129,6 @@ h1 {
     font-family: sans-serif;
 }
 
-.check-box:checked + h2 {
-    text-decoration: line-through;
-    color: #888;
-}
-
 .options-container {
     display: flex;
     justify-content: flex-end;
@@ -125,7 +137,6 @@ h1 {
 }
 
 .remove-todo {
-
     width: 20px;
     height: 20px;
     font-family: sans-serif;
@@ -138,7 +149,7 @@ h1 {
     cursor: pointer;
 }
 
-.remove-to-do:hover {
+.remove-todo:hover {
     background: rgb(139, 97, 93);
     color: #fff;
 }

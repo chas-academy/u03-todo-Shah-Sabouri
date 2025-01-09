@@ -60,7 +60,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <h1>Edit Task</h1>
             <form action="edit.php?id=<?php echo $todo['id']; ?>" method="POST">
                 <input type="hidden" name="id" value="<?php echo $todo['id']; ?>" />
-                <input type="text" name="title" value="<?php echo htmlspecialchars($todo['title']); ?>" required />
+                <input type="text" name="title" placeholder="Edit task name" value="<?php echo htmlspecialchars($todo['title']); ?>" required />
                 <textarea name="description" placeholder="Edit task description"><?php echo htmlspecialchars($todo['description']); ?></textarea>
                 <div class="button-container">
                     <button type="submit" class="update-btn">Update Task</button>

@@ -24,4 +24,3 @@ if (isset($_POST['id']) && isset($_POST['checked'])) {
 } else {
     echo 'Invalid parameters.';
 }
-?>

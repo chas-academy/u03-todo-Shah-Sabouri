@@ -1,14 +1,14 @@
 <?php
+
 include 'db.php';
 
 if (!$conn) {
-    echo "Database connection failed!";
+    echo 'Database connection failed!';
     exit();
 }
 
-$query = "SELECT * FROM stuffToDo";
+$query = 'SELECT * FROM stuffToDo';
 $todos = $conn->query($query);
-
 ?>
 
 <!DOCTYPE html>
@@ -45,15 +45,20 @@ $todos = $conn->query($query);
             <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
                 <div class="todo-item">
                     <div class="options-container">
-                        <a href="functions/edit.php?id=<?php echo $todo['id']; ?>" class="edit-btn">Edit</a>
-                        <a href="functions/remove.php?id=<?php echo $todo['id']; ?>" class="remove-todo" onclick="return confirm('Are you sure you want to delete this task?')">x</a>
+                        <a href="functions/edit.php?id=<?php echo $todo['id']; ?>"
+                        class="edit-btn">Edit</a>
+                        <a href="functions/remove.php?id=<?php echo $todo['id']; ?>"
+                        class="remove-todo" onclick="return confirm('Are you sure you want to delete this task?')">
+                        x</a>
                     </div>
 
                     <form action="functions/check.php" method="POST" class="todo-form">
                         <input type="hidden" name="id" value="<?php echo $todo['id']; ?>" />
                         <input type="hidden" name="checked" value="<?php echo $todo['checked'] ? 0 : 1; ?>" />
                         <div class="todo-checkbox-container">
-                            <input type="checkbox" name="toggle" <?php echo $todo['checked'] ? 'checked' : ''; ?> onchange="this.form.submit()" />
+                            <input type="checkbox" name="toggle"
+                            <?php echo $todo['checked'] ? 'checked' : ''; ?>
+                            onchange="this.form.submit()" />
                             <h2 class="<?php echo $todo['checked'] ? 'checked' : ''; ?>">
                                 <?php echo htmlspecialchars($todo['title']); ?>
                             </h2>

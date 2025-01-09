@@ -23,4 +23,3 @@ if (isset($_POST['title']) && !empty($_POST['title'])) {
     header("Location: ../index.php?mess=error");
     exit();
 }
-?>

@@ -37,7 +37,6 @@ $todos = $conn->query($query);
             <?php if ($todos->rowCount() <= 0) { ?>
                 <div class="todo-item">
                     <div class="empty">
-                        <!--<p>No tasks to show</p>-->
                         <img src="assets/img-empty-todo.jpg" alt="img" width="100%">
                     </div>
                 </div>

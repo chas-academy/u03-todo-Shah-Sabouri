@@ -27,7 +27,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             // Förbereder SQL-frågan för att uppdatera uppgiftens titel i databasen
             $updateStmt = $conn->prepare($updateQuery);
             $updateStmt->bindParam(':title', $newTitle);
-            $updateStmt->bindParam(':description', $newDescription, PDO::PARAM_STR); // Binder beskrivningen som en sträng (null om den är tom)
+            $updateStmt->bindParam(':description', $newDescription, PDO::PARAM_STR);
+            // Binder beskrivningen som en sträng (null om den är tom)
             $updateStmt->bindParam(':id', $id);
 
             if ($updateStmt->execute()) { // Kör uppdateringsfrågan
@@ -59,12 +60,18 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <div class="edit-section">
             <h1>Edit Task</h1>
             <form action="edit.php?id=<?php echo $todo['id']; ?>" method="POST">
-                <input type="hidden" name="id" value="<?php echo $todo['id']; ?>" />
-                <input type="text" name="title" placeholder="Edit task name" value="<?php echo htmlspecialchars($todo['title']); ?>" required />
-                <textarea name="description" placeholder="Edit task description"><?php echo htmlspecialchars($todo['description']); ?></textarea>
+                <input type="hidden" name="id" value="
+                <?php echo $todo['id']; ?>" />
+                <input type="text" name="title"
+                placeholder="Edit task name" 
+                value="<?php echo htmlspecialchars($todo['title']); ?>" required />
+                <textarea name="description" placeholder="Edit task description">
+                    <?php echo htmlspecialchars($todo['description']); ?></textarea>
                 <div class="button-container">
-                    <button type="submit" class="update-btn">Update Task</button>
-                    <button type="button" class="cancel-btn" onclick="window.location.href='../index.php';">Cancel</button>
+                    <button type="submit" 
+                    class="update-btn">Update Task</button>
+                    <button type="button" class="cancel-btn" 
+                    onclick="window.location.href='../index.php';">Cancel</button>
                 </div>
             </form>
         </div>

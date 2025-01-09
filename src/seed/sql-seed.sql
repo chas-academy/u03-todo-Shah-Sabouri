@@ -9,3 +9,5 @@ CREATE TABLE stuffToDo (
     checked TINYINT(1) DEFAULT 0,
     PRIMARY KEY (id)
 );
+
+ALTER TABLE stuffToDo ADD COLUMN description TEXT;

@@ -46,6 +46,21 @@ h1 {
     padding: 0px 5px;
 }
 
+.add-section textarea {
+    display: block;
+    width: 95%;
+    height: 40px;
+    margin: 40px;
+    margin: 10px auto;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    font-family: sans-serif;
+    resize: vertical;
+    height: 100px;
+}
+
 .add-section button {
     display: block;
     width: 95%;
@@ -117,6 +132,15 @@ h1 {
 .todo-item h2.checked {
     text-decoration: line-through;
     color: #888;
+}
+.todo-description {
+    color: #555;
+    font-size: 14px;
+    padding: 5px 0px;
+    padding-left: 30px;
+    margin-top: 10px;
+    line-height: 1.4;
+    word-wrap: break-word;
 }
 
 .todo-item small {
@@ -198,6 +222,19 @@ h1 {
     font-size: 16px;
     border-radius: 5px;
     padding: 0px 5px;
+}
+
+.edit-section textarea {
+    display: block;
+    width: 95%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    resize: vertical;
+    height: 100px;
 }
 
 .edit-section .button-container {

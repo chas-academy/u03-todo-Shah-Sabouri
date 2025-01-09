@@ -26,9 +26,11 @@ $todos = $conn->query($query);
             <form action="functions/create.php" method="POST">
                 <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
                     <input type="text" name="title" placeholder="Required field"/>
+                    <textarea name="description" placeholder="Task description"></textarea>
                     <button type="submit">Add</button>
                 <?php } else { ?>
                     <input type="text" name="title" placeholder="Add task" />
+                    <textarea name="description" placeholder="Task description"></textarea>
                     <button type="submit">Add</button>
                 <?php } ?>
             </form>
@@ -64,6 +66,11 @@ $todos = $conn->query($query);
                             </h2>
                         </div>
                     </form>
+
+                    <p class="todo-description">
+                        <?php echo nl2br(htmlspecialchars($todo['description'])); ?>
+                    </p>
+
                     <br>
                     <small>created: <?php echo $todo['date_time']; ?></small>
                 </div>

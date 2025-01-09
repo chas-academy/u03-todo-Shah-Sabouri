@@ -64,9 +64,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <?php echo $todo['id']; ?>" />
                 <input type="text" name="title"
                 placeholder="Edit task name" 
-                value="<?php echo htmlspecialchars($todo['title']); ?>" required />
-                <textarea name="description" placeholder="Edit task description">
-                    <?php echo htmlspecialchars($todo['description']); ?></textarea>
+                value="<?php echo $todo['title']; ?>" required />
+                <textarea name="description" placeholder="Edit task description"><?=$todo['description']?></textarea>
                 <div class="button-container">
                     <button type="submit" 
                     class="update-btn">Update Task</button>

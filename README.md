@@ -1,8 +1,13 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/5k4uDUDX)
 
 ## Beskrivning
-
 #### En enkel att-göra lista skriven på engelska där man kan lägga till uppgifter (innehållande en titel samt beskrivning), redigera samtliga uppgifter i efterhand, markera dem som klara och sedan ta bort dem.
+
+## Steg-för-steg
+#### Nedan finner du de nödvändiga stegen för att köra denna applikation
+* Först och främst behöver du klona/ladda ner applikationen från GitHub. Klonar du den till din dator skriver du följande i terminalen:
+`git clone --https://github.com/chas-academy/u03-todo-Shah-Sabouri.git`
+
 
 ## ER-DIAGRAM
 ![Entity-Relationship](./src/assets/er-diagram.png)
